@@ -15,20 +15,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViewById(R.id.button_play).setOnClickListener(view -> openPlay(view));
+        findViewById(R.id.button_score).setOnClickListener(view -> openScore(view));
     }
 
     public void openPlay(View view){
         Intent intent = new Intent(this, PlayActivity.class);
         startActivity(intent);
-        Button monBoutton = (Button) view;
-        String txt = (String) monBoutton.getText();
-
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.main_menu, menu);
-        return super.onCreateOptionsMenu(menu);
+    public void openScore(View view){
+        Intent intent = new Intent(this, ScoreActivity.class);
+        startActivity(intent);
     }
+
 }
