@@ -4,48 +4,86 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:fadingEdge="horizontal"
     tools:context=".PlayActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center|center_vertical"
+        android:gravity="center_horizontal|center_vertical"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="177dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/PlayToMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:alpha="1"
+                android:text="@string/back"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="58dp" />
 
         <TextView
             android:id="@+id/operation_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Ici opérations genre 6 x 8 = ?"
+            android:text="6 x 8 = ?"
             android:textSize="30dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="23dp" />
 
         <TextView
             android:id="@+id/msg_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Calcul bon ou pas"
-            android:textColor="@color/neutral"
-            android:textSize="34sp"
-            tools:text="Calcul bon ou pas" />
+            android:text="@string/success"
+            android:textColor="@color/succes"
+            android:textSize="34sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textviewInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/neutral"
+            android:autoText="false"
+            android:background="@drawable/rounded_corner_view"
             android:backgroundTint="@color/teal_700"
             android:drawableTint="@color/teal_200"
             android:foregroundTint="@color/neutral"
-            android:gravity="center_horizontal"
-            android:maxHeight="100dp"
-            android:minHeight="100dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:maxHeight="75dp"
+            android:minHeight="75dp"
             android:shadowColor="#201E1E"
-            android:text="TextView"
-            android:textAlignment="textStart"
+            android:text="@string/Textview_input"
+            android:textAlignment="gravity"
             android:textSize="34sp" />
 
         <LinearLayout
@@ -209,9 +247,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="submit" />
+                android:text="@string/submit"
+                android:textAllCaps="false" />
 
         </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="87dp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

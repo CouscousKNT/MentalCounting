@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="A propos" android:id="@+id/menu1"/>
-    <item android:title="Clear cache" android:id="@+id/menu2"/>
-    <item android:title="Fermer" android:id="@+id/menu3"/>
+    <item
+        android:id="@+id/menu_scores"
+        android:title="@string/scores" />
+    <item
+        android:id="@+id/menu_scores_reset"
+        android:title="@string/reset_scores" />
+    <item
+        android:id="@+id/menu_close"
+        android:title="@string/close" />
 </menu>

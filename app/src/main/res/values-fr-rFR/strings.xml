@@ -2,4 +2,13 @@
 <resources>
     <string name="app_name">CalculMental</string>
     <string name="button_play">Jouer</string>
+    <string name="back">Retour</string>
+    <string name="submit">Valider</string>
+    <string name="success">Correct</string>
+    <string name="failure">Faux</string>
+    <string name="Textview_input">Saisie</string>
+    <string name="scores">Scores</string>
+    <string name="reset_scores">Reinitialiser les scores</string>
+    <string name="close">Fermer</string>
+    <string name="button_score">Score</string>
 </resources>

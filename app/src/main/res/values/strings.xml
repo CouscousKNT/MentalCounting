@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">MentalCounting</string>
     <string name="button_play">Play</string>
+    <string name="back">Back</string>
+    <string name="submit">Submit</string>
+    <string name="success">True</string>
+    <string name="failure">Wrong</string>
+    <string name="Textview_input">Input</string>
+    <string name="scores">Scores</string>
+    <string name="reset_scores">Reset Scores</string>
+    <string name="close">Close</string>
+    <string name="button_score">Score</string>
 </resources>
