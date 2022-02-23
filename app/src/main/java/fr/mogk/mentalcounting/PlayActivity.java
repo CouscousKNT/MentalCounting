@@ -7,6 +7,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toolbar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +17,7 @@ public class PlayActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Rank rank = Rank.GOLD;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
         //TextView tv = findViewById(R.id.msg_txt);
@@ -24,6 +26,9 @@ public class PlayActivity extends AppCompatActivity {
         btn.setText(btn.getText()+" →");
         btn.setOnClickListener(view -> backToMenu(view));
         setTitle(R.string.button_play);
+        TextView tv = findViewById(R.id.operation_txt);
+        Operation op = new Operation(rank);
+        tv.setText(op.toString());
     }
 
     public void backToMenu(View view){
@@ -51,4 +56,5 @@ public class PlayActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

@@ -43,8 +43,12 @@
       <list>
         <option value="valueResourceFile" />
         <option value="resourceFile" />
+        <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="24Ezf2ZFTEgP4rLFL38sWMAYfyo" />
   <component name="ProjectViewState">
@@ -54,9 +58,20 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Mathis\.git\MentalCounting\app\src\main\res\drawable" />
+      <recent name="C:\Users\Mathis\.git\MentalCounting\app\src\main\res\mipmap-xxxhdpi" />
+      <recent name="C:\Users\Mathis\.git\MentalCounting\app\src\main\res\mipmap-xxhdpi" />
+      <recent name="C:\Users\Mathis\.git\MentalCounting\app\src\main\res\mipmap-xhdpi" />
+      <recent name="C:\Users\Mathis\.git\MentalCounting\app\src\main\res\mipmap-mdpi" />
+    </key>
     <key name="android.template.1832626038">
       <recent name="fr.mogk.mentalcounting" />
     </key>
