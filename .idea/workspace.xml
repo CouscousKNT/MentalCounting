@@ -9,7 +9,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2387d2e-cf95-4c05-8622-bd94b6ee1f10" name="Changes" comment="" />
+    <list default="true" id="d2387d2e-cf95-4c05-8622-bd94b6ee1f10" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/fr/mogk/mentalcounting/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fr/mogk/mentalcounting/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/fr/mogk/mentalcounting/PlayActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fr/mogk/mentalcounting/PlayActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_score.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_score.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+    </list>
+    <list id="45db53ae-7862-48dd-83f9-106a3fefb992" name="Changes by Ousmane" comment="">
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/fr/mogk/mentalcounting/PlayActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fr/mogk/mentalcounting/PlayActivity.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,6 +61,17 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/app/src/main/java/fr/mogk/mentalcounting/PlayActivity.java">
+      <ranges>
+        <range start1="22" end1="24" start2="22" end2="22" changelist="45db53ae-7862-48dd-83f9-106a3fefb992" />
+        <range start1="31" end1="31" start2="29" end2="30" changelist="d2387d2e-cf95-4c05-8622-bd94b6ee1f10" />
+        <range start1="36" end1="36" start2="35" end2="36" changelist="d2387d2e-cf95-4c05-8622-bd94b6ee1f10" />
+        <range start1="51" end1="51" start2="51" end2="52" changelist="d2387d2e-cf95-4c05-8622-bd94b6ee1f10" />
+        <range start1="59" end1="59" start2="60" end2="72" changelist="d2387d2e-cf95-4c05-8622-bd94b6ee1f10" />
+      </ranges>
+    </file>
+  </component>
   <component name="ProjectId" id="24Ezf2ZFTEgP4rLFL38sWMAYfyo" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
@@ -59,7 +81,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
@@ -126,5 +148,16 @@
       <updated>1643210633331</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

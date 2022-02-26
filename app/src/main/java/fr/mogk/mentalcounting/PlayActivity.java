@@ -20,8 +20,6 @@ public class PlayActivity extends AppCompatActivity {
         Rank rank = Rank.GOLD;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
-        //TextView tv = findViewById(R.id.msg_txt);
-        //tv.setTextColor(getResources().getColor(R.color.succes)); // test changement couleur, sera utile pour plus tard
         Button btn = findViewById(R.id.PlayToMenu);
         btn.setText(btn.getText()+" →");
         btn.setOnClickListener(view -> backToMenu(view));
@@ -29,11 +27,13 @@ public class PlayActivity extends AppCompatActivity {
         TextView tv = findViewById(R.id.operation_txt);
         Operation op = new Operation(rank);
         tv.setText(op.toString());
+        reponse(false);
     }
 
     public void backToMenu(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
     @Override
@@ -49,6 +49,7 @@ public class PlayActivity extends AppCompatActivity {
             case R.id.menu_scores:
                 Intent intent = new Intent(this, ScoreActivity.class);
                 startActivity(intent);
+                finish();
             case R.id.menu_scores_reset:
                 //code pour reset les scores
             default:
@@ -57,4 +58,18 @@ public class PlayActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //Gère le texte et la couleur en fonction de la réponse (Correct ou Non)
+    public void reponse(boolean isGood){
+        TextView tv = findViewById(R.id.msg_txt);
+        if(isGood){
+            tv.setTextColor(getResources().getColor(R.color.succes, this.getTheme()));
+            tv.setText(getResources().getString(R.string.success));
+            //set le score
+        }
+        else{
+            tv.setTextColor(getResources().getColor(R.color.failure, this.getTheme()));
+            tv.setText(getResources().getString(R.string.failure));
+            //set le score
+        }
+    }
 }

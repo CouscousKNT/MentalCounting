@@ -21,11 +21,13 @@ public class MainActivity extends AppCompatActivity {
     public void openPlay(View view){
         Intent intent = new Intent(this, PlayActivity.class);
         startActivity(intent);
+        finish();
     }
 
     public void openScore(View view){
         Intent intent = new Intent(this, ScoreActivity.class);
         startActivity(intent);
+        finish();
     }
 
 }
