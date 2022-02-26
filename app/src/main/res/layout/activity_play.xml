@@ -82,7 +82,6 @@
             android:maxHeight="75dp"
             android:minHeight="75dp"
             android:shadowColor="#201E1E"
-            android:text="@string/Textview_input"
             android:textAlignment="gravity"
             android:textSize="34sp" />
 
