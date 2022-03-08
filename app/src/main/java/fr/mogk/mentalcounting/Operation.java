@@ -38,28 +38,32 @@ public class Operation {
         switch (typeOperation){
             case (0):
                 operation='+';
-                partieGauche=minAddition+ (Math.random() * ( maxAddition - minAddition ));
-                partieDroite=minAddition+ (Math.random() * ( maxAddition - minAddition ));
+                partieGauche=minAddition+ (int) (Math.random() * ( maxAddition - minAddition ));
+                partieDroite=minAddition+ (int) (Math.random() * ( maxAddition - minAddition ));
+                reponse=partieDroite+partieGauche;
                 break;
             case (1):
                 operation='-';
-                partieGauche=minAddition+ (Math.random() * ( maxAddition - minAddition ));
-                partieDroite=minAddition+ (Math.random() * ( maxAddition - minAddition ));
+                partieGauche=minAddition+ (int) (Math.random() * ( maxAddition - minAddition ));
+                partieDroite=minAddition+ (int) (Math.random() * ( maxAddition - minAddition ));
+                reponse=partieGauche-partieDroite;
                 break;
             case (2):
                 operation='*';
-                partieGauche=minMultiplication+ (Math.random() * ( maxMultiplication - minMultiplication ));
-                partieDroite=minMultiplication+ (Math.random() * ( maxMultiplication - minMultiplication ));
+                partieGauche=minMultiplication+ (int) (Math.random() * ( maxMultiplication - minMultiplication ));
+                partieDroite=minMultiplication+ (int) (Math.random() * ( maxMultiplication - minMultiplication ));
+                reponse=partieDroite*partieGauche;
                 break;
             case (3):
                 operation='/';
-                partieGauche=minMultiplication+ (Math.random() * ( maxMultiplication - minMultiplication ));
-                partieDroite=minMultiplication+ (Math.random() * ( maxMultiplication - minMultiplication ));
+                partieGauche=minMultiplication+ (int) (Math.random() * ( maxMultiplication - minMultiplication ));
+                partieDroite=minMultiplication+ (int) (Math.random() * ( maxMultiplication - minMultiplication ));
                 if(partieDroite>partieGauche){
                     double tmp = partieDroite;
                     partieDroite=partieGauche;
                     partieGauche=tmp;
                 }
+                reponse=partieGauche/partieDroite;
                 break;
             default:
                 operation='?';

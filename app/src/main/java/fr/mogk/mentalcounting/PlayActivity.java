@@ -13,25 +13,39 @@ import android.widget.Toolbar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class PlayActivity extends AppCompatActivity {
 
+    private Operation op;
+    private Rank rank;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Rank rank = Rank.GOLD;
+        rank = Rank.BRONZE;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
         Button btn = findViewById(R.id.PlayToMenu);
+        TextView tv1 = findViewById(R.id.msg_txt);
+        //tv1.setVisibility(View.INVISIBLE);
         btn.setText(btn.getText()+" →");
         btn.setOnClickListener(view -> backToMenu(view));
         setTitle(R.string.button_play);
-        TextView tv = findViewById(R.id.operation_txt);
-        Operation op = new Operation(rank);
-        tv.setText(op.toString());
+        generateCalcul();
         initBoutons();
+        Button btnValid = findViewById(R.id.button_submit);
+        btnValid.setOnClickListener(view -> verif(view));
+
+    }
+
+    public void generateCalcul(){
+        System.out.println("je suis dans gen calc");
+        TextView tv = findViewById(R.id.operation_txt);
+        op = new Operation(rank);
+        tv.setText(op.toString());
     }
 
     public void backToMenu(View view){
@@ -81,12 +95,15 @@ public class PlayActivity extends AppCompatActivity {
         Button btnDel = findViewById(R.id.button_del);
         btnDel.setOnClickListener(view -> deleteInput(view));
 
+
     }
 
     public void saisie(View view){
         TextView tv = findViewById(R.id.textviewInput);
         Button btn = (Button) view;
         tv.setText((String) tv.getText()+btn.getText());
+        TextView tv1 = findViewById(R.id.msg_txt);
+        tv1.setVisibility(View.INVISIBLE);
     }
 
     public void deleteInput(View view){
@@ -97,6 +114,28 @@ public class PlayActivity extends AppCompatActivity {
             String txt1 = txt.substring(0,lengh-1);
             tv.setText(txt1);
         }
+    }
+
+    public void verif(View view){
+        TextView tv1 = findViewById(R.id.textviewInput);
+        String txt = (String) tv1.getText();
+        boolean result = (Double.parseDouble(txt)) == (op.getReponse());
+        TextView tv = findViewById(R.id.msg_txt);
+        if(result){
+            tv.setTextColor(getResources().getColor(R.color.succes, this.getTheme()));
+            tv.setText(getResources().getString(R.string.success));
+            //set le score
+        }
+        else{
+            tv.setTextColor(getResources().getColor(R.color.failure, this.getTheme()));
+            tv.setText(getResources().getString(R.string.failure));
+            //set le score
+        }
+        tv.setVisibility(View.VISIBLE);
+        Toast.makeText(this, "R attendue :"+op.getReponse()+", R donnée : "+txt, Toast.LENGTH_SHORT).show();
+        tv1.setText("");
+        System.out.println("je sort de verif");
+        generateCalcul();
     }
 
     //Gère le texte et la couleur en fonction de la réponse (Correct ou Non)
