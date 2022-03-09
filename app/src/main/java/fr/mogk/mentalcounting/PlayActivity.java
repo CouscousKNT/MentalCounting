@@ -1,7 +1,12 @@
 package fr.mogk.mentalcounting;
 
 import android.app.ActionBar;
+import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.os.Build;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -11,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import org.w3c.dom.Text;
@@ -29,8 +35,6 @@ public class PlayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
         Button btn = findViewById(R.id.PlayToMenu);
-        TextView tv1 = findViewById(R.id.msg_txt);
-        //tv1.setVisibility(View.INVISIBLE);
         btn.setText(btn.getText()+" →");
         btn.setOnClickListener(view -> backToMenu(view));
         setTitle(R.string.button_play);
@@ -42,7 +46,6 @@ public class PlayActivity extends AppCompatActivity {
     }
 
     public void generateCalcul(){
-        System.out.println("je suis dans gen calc");
         TextView tv = findViewById(R.id.operation_txt);
         op = new Operation(rank);
         tv.setText(op.toString());
@@ -71,6 +74,7 @@ public class PlayActivity extends AppCompatActivity {
             case R.id.menu_scores_reset:
                 //code pour reset les scores
             default:
+                finish();
                 //rien
         }
         return super.onOptionsItemSelected(item);
@@ -94,16 +98,23 @@ public class PlayActivity extends AppCompatActivity {
         }
         Button btnDel = findViewById(R.id.button_del);
         btnDel.setOnClickListener(view -> deleteInput(view));
+        TextView tv1 = findViewById(R.id.msg_txt);
+        tv1.setVisibility(View.INVISIBLE);
 
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void saisie(View view){
         TextView tv = findViewById(R.id.textviewInput);
         Button btn = (Button) view;
         tv.setText((String) tv.getText()+btn.getText());
         TextView tv1 = findViewById(R.id.msg_txt);
         tv1.setVisibility(View.INVISIBLE);
+
+        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        VibrationEffect vbEffect = VibrationEffect.createOneShot(100,1);
+        vibrator.vibrate(vbEffect);
     }
 
     public void deleteInput(View view){
@@ -116,40 +127,40 @@ public class PlayActivity extends AppCompatActivity {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void verif(View view){
         TextView tv1 = findViewById(R.id.textviewInput);
         String txt = (String) tv1.getText();
-        boolean result = (Double.parseDouble(txt)) == (op.getReponse());
+        boolean result;
+        try {
+            result = (Double.parseDouble(txt)) == (op.getReponse());
+        }
+        catch (Exception e){
+            result = false;
+        }
         TextView tv = findViewById(R.id.msg_txt);
+        final MediaPlayer mpFail = MediaPlayer.create(this, R.raw.failure);
+        final MediaPlayer mpSuccess = MediaPlayer.create(this, R.raw.success);
+        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        VibrationEffect vbEffect;
         if(result){
+            mpSuccess.start();
             tv.setTextColor(getResources().getColor(R.color.succes, this.getTheme()));
             tv.setText(getResources().getString(R.string.success));
+            vbEffect = VibrationEffect.createOneShot(200,2);
             //set le score
         }
         else{
+            mpFail.start();
             tv.setTextColor(getResources().getColor(R.color.failure, this.getTheme()));
             tv.setText(getResources().getString(R.string.failure));
+            vbEffect = VibrationEffect.createOneShot(500,5);
             //set le score
         }
+        vibrator.vibrate(vbEffect);
         tv.setVisibility(View.VISIBLE);
-        Toast.makeText(this, "R attendue :"+op.getReponse()+", R donnée : "+txt, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "R attendue :"+op.getReponse()+", R donnée : "+txt, Toast.LENGTH_SHORT).show();
         tv1.setText("");
-        System.out.println("je sort de verif");
         generateCalcul();
-    }
-
-    //Gère le texte et la couleur en fonction de la réponse (Correct ou Non)
-    public void reponse(boolean isGood){
-        TextView tv = findViewById(R.id.msg_txt);
-        if(isGood){
-            tv.setTextColor(getResources().getColor(R.color.succes, this.getTheme()));
-            tv.setText(getResources().getString(R.string.success));
-            //set le score
-        }
-        else{
-            tv.setTextColor(getResources().getColor(R.color.failure, this.getTheme()));
-            tv.setText(getResources().getString(R.string.failure));
-            //set le score
-        }
     }
 }
