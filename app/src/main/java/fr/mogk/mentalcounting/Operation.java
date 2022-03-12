@@ -46,6 +46,13 @@ public class Operation {
                 operation='-';
                 partieGauche=minAddition+ (int) (Math.random() * ( maxAddition - minAddition ));
                 partieDroite=minAddition+ (int) (Math.random() * ( maxAddition - minAddition ));
+                if(rank!=Rank.GOLD){
+                    if(partieDroite>partieGauche){
+                        double tmp = partieDroite;
+                        partieDroite=partieGauche;
+                        partieGauche=tmp;
+                    }
+                }
                 reponse=partieGauche-partieDroite;
                 break;
             case (2):
@@ -56,17 +63,10 @@ public class Operation {
                 break;
             case (3):
                 operation='/';
-                partieGauche=minMultiplication+ (int) (Math.random() * ( maxMultiplication - minMultiplication ));
                 partieDroite=minMultiplication+ (int) (Math.random() * ( maxMultiplication - minMultiplication ));
-                if(partieDroite>partieGauche){
-                    double tmp = partieDroite;
-                    partieDroite=partieGauche;
-                    partieGauche=tmp;
-                }
+                partieGauche=partieDroite*(int) (Math.random() * (10-1));
                 reponse=partieGauche/partieDroite;
                 break;
-            default:
-                operation='?';
         }
 
         if(rank==Rank.BRONZE||rank==Rank.SILVER||rank==Rank.GOLD){
